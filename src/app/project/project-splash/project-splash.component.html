@@ -1,0 +1,26 @@
+<div class="splash-container d-flex" *ngIf="selectedTab === 'splash'">
+  <div class="splash-description">
+    <h1>Welcome To EVALUATZA!</h1>
+    <h2>Choose the desired action! </h2>
+    <div class="options-container">
+      <div
+        class="option-card"
+        routerLink="/Create"
+      >
+        <img src="../../../assets/images/Startup%20life-cuate.svg" alt="">
+        <h3>New Project</h3>
+      </div>
+      <div
+        class="option-card"
+        routerLink="/Existing"
+      >
+        <img src="../../../assets/images/Building%20blocks-cuate.svg" alt="">
+        <h3>Existing Project</h3>
+      </div>
+    </div>
+  </div>
+  <div class="splash-illustration">
+    <img src="../../../assets/images/Analytics-cuate.svg" alt="">
+  </div>
+</div>
+<router-outlet></router-outlet>

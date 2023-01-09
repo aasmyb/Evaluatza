@@ -1,0 +1,39 @@
+<div class="phase-item-wrapper">
+  <div class="phase-info d-flex mb-2">
+    <div class="phase-name mt-2">
+      <h6 *ngIf="project.type === 'Waterfall'">Phase Name:</h6>
+      <h6 *ngIf="project.type === 'Scrum'">Sprint Name:</h6>
+      <h4 class="main-theme-color fw-bold">{{ phase.name }}</h4>
+    </div>
+    <div class="tasks-done text-center">
+      <h6>Tasks Done:</h6>
+      <span class="main-theme-color fw-bold">{{ tasksDone }}/{{ phase.tasks.length }}</span>
+    </div>
+    <div class="phase-manager d-flex">
+      <div (click)="onModifyPhase()">
+        <i class="fas fa-edit"></i>
+      </div>
+      <div (click)="onDeletePhase()">
+        <i class="fas fa-trash"></i>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div
+    *ngFor="let task of phase.tasks"
+    class="task-info d-flex">
+    <div
+      [ngStyle]="{marginRight: '92px'}"
+      class="task-name">
+      <h6>Task Name:</h6>
+      <h5 class="main-theme-color fw-bold">{{ task.name }} </h5>
+    </div>
+    <div class="task-stat text-center">
+      <h6>Task Status:</h6>
+      <span
+        class="main-theme-color fw-bold"
+        [ngStyle]="{color: task.isDone === false? 'red' : 'limegreen'}"
+      >{{task.isDone ? 'done': 'pending'}}</span>
+    </div>
+  </div>
+</div>

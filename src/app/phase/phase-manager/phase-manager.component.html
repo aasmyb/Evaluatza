@@ -1,0 +1,39 @@
+<div class="container form-holder-container mt-2">
+  <h1 class="text-center main-theme-color fw-bold" *ngIf="mode === 'Create'">Create A New Phase</h1>
+  <h1 class="text-center main-theme-color fw-bold" *ngIf="mode !== 'Create'">Modify Your Phase</h1>
+  <form
+    class="new-project mt-4 container align-content-center"
+    (ngSubmit)="onSubmit(phaseForm)" #phaseForm="ngForm">
+    <div class="row">
+      <div class="mb-3 col-9 m-auto">
+        <label for="phaseName" class="form-label main-theme-color">Phase Name:</label>
+        <input
+          [ngModel] ="oldPhaseName"
+          required
+          name="phaseName"
+          id="phaseName"
+          type="email"
+          class="form-control"
+          placeholder="My Phase">
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-9 m-auto d-flex justify-content-around">
+        <button
+          *ngIf="mode === 'Create'"
+          type="submit"
+          [disabled]="!phaseForm.valid"
+          class="btn btn-primary">Create</button>
+        <button
+          *ngIf="mode !== 'Create'"
+          type="submit"
+          [disabled]="!phaseForm.valid"
+          class="btn btn-primary">Modify</button>
+        <button type="reset" class="btn btn-outline-warning">Reset</button>
+        <button type="button" class="btn btn-danger" (click)="onCloseForm()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+

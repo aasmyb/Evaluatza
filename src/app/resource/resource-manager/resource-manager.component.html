@@ -1,0 +1,40 @@
+<div class="container form-holder-container mt-2">
+  <h1 class="text-center main-theme-color fw-bold" *ngIf="mode === 'Create'">Add New Resource</h1>
+  <h1 class="text-center main-theme-color fw-bold" *ngIf="mode !== 'Create'">Modify Your Resource</h1>
+  <form
+    class="new-project mt-4 container align-content-center"
+    (ngSubmit)="onSubmit(resourceForm)" #resourceForm="ngForm">
+    <div class="row">
+      <div class="mb-3 col-9 m-auto">
+        <label for="ResourceName" class="form-label main-theme-color">Resource Name:</label>
+        <input
+          [ngModel] ="oldResourceName"
+          required
+          name="ResourceName"
+          id="ResourceName"
+          type="email"
+          class="form-control"
+          placeholder="My Resource">
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-9 m-auto d-flex justify-content-around">
+        <button
+          *ngIf="mode === 'Create'"
+          type="submit"
+          [disabled]="!resourceForm.valid"
+          class="btn btn-primary">Add</button>
+        <button
+          *ngIf="mode !== 'Create'"
+          type="submit"
+          [disabled]="!resourceForm.valid"
+          class="btn btn-primary">Modify</button>
+        <button type="reset" class="btn btn-outline-warning">Reset</button>
+        <button type="button" class="btn btn-danger" (click)="onCloseForm()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+

@@ -1,0 +1,28 @@
+<div class="logo-container">
+  <img src="../../assets/images/logo.svg" alt="">
+  <h4 class="mt-4">Business Project Tracker</h4>
+</div>
+<div class="nav-container mt-4">
+  <ul>
+    <li
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+    ><a  routerLink="/Home"><i class="fas fa-home"></i>Home</a>
+      <a routerLink="/Create" class="d-none"><i class="fas fa-home"></i>Home</a>
+      <a routerLink="/Existing" class="d-none"><i class="fas fa-home"></i>Home</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/Phases', projectID]" [ngClass]="{'not-clickable': !isAuthenticated}"><i class="fas fa-server"></i>Phases</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/Tasks', projectID]" [ngClass]="{'not-clickable': !isAuthenticated}"><i class="fas fa-tasks"></i>Tasks</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/Resources', projectID]" [ngClass]="{'not-clickable': !isAuthenticated}"><i class="fas fa-users"></i>Resources</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/Info', projectID]" [ngClass]="{'not-clickable': !isAuthenticated}"><i class="far fa-question-circle"></i>General Info</a>
+    </li>
+  </ul>
+</div>
+

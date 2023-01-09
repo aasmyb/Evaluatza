@@ -1,0 +1,26 @@
+<h1 class="text-center main-theme-color fw-bold">Explore Your Tasks</h1>
+<div class="list-container d-flex m-auto" *ngIf="tasks.length>0; else noTasks">
+  <app-task-item
+    *ngFor="let taskElement of tasks"
+    [task]="taskElement.task"
+    [taskID]="taskElement.taskID"
+    [phaseID]="taskElement.phaseID"
+    [projects]="projects"
+    class="m-auto mb-3"></app-task-item>
+</div>
+<ng-template class="text-center" #noTasks>
+  <h3 class="text-center main-theme">Your List looks Empty, Start Filling it with Life!</h3>
+  <div class="illustration-holder">
+    <img
+      [ngStyle]="{'max-height' : '445px'}"
+      src="../../../assets/images/Empty-amico.svg"
+      alt="empty">
+  </div>
+</ng-template>
+<div class="row mt-4">
+  <div class="col-12 m-auto d-flex justify-content-around">
+    <button
+      class="btn btn-primary m-auto"
+      (click)="onCreateSelected()">Add New Task</button>
+  </div>
+</div>

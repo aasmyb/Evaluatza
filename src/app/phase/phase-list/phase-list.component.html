@@ -1,0 +1,25 @@
+<h1 class="text-center main-theme-color fw-bold">Explore Your Phases</h1>
+<div class="list-container d-flex m-auto" *ngIf="phases.length>0; else noPhases">
+  <app-phase-item
+    *ngFor="let phaseElement of phases; let phaseElementIndex = index"
+    [phase]="phaseElement"
+    [phaseIndex]="phaseElementIndex"
+    [projects]="projects"
+    class="m-auto mb-3"></app-phase-item>
+</div>
+  <ng-template class="text-center" #noPhases>
+    <h3 class="text-center main-theme">Your List looks Empty, Start Filling it with Life!</h3>
+    <div class="illustration-holder">
+      <img
+        [ngStyle]="{'max-height' : '445px'}"
+        src="../../../assets/images/Empty-amico.svg"
+        alt="empty">
+    </div>
+  </ng-template>
+  <div class="row mt-4 ">
+    <div class="col-12 m-auto d-flex justify-content-around">
+      <button
+        class="btn btn-primary m-auto"
+        (click)="onCreateSelected()">Create Phase</button>
+    </div>
+  </div>

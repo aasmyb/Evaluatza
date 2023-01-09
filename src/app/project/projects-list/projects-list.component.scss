@@ -1,0 +1,11 @@
+.list-container{
+  width: 80%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  app-project-item{
+    width: 40%;
+    .project-card{
+      width: 100%;
+    }
+  }
+}

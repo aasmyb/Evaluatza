@@ -1,0 +1,14 @@
+.list-container{
+  width: 80%;
+  flex-wrap: wrap;
+  padding: 16px 0 26px 0;
+  overflow: scroll !important;
+  max-height: 500px;
+
+  app-phase-item, app-resource-item, app-task-item{
+    border-radius: 15px;
+    box-shadow: 4px 6px 18px -6px rgb(0 0 0 / 75%);
+    padding: 10px 17px 10px 17px;
+    width: 90%;
+  }
+}

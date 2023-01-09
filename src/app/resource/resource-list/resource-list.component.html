@@ -1,0 +1,25 @@
+<h1 class="text-center main-theme-color fw-bold">Explore Your Resources</h1>
+<div class="list-container d-flex m-auto" *ngIf="resources.length>0; else noResources">
+  <app-resource-item
+    *ngFor="let resourceElement of resources; let projectIDElement = index;"
+    [resource]="resourceElement"
+    [resourceId]="projectIDElement"
+    [projects]="projects"
+    class="m-auto mb-3"></app-resource-item>
+</div>
+<ng-template class="text-center" #noResources>
+  <h3 class="text-center main-theme">Your List looks Empty, Start Filling it with Life!</h3>
+  <div class="illustration-holder">
+    <img
+      [ngStyle]="{'max-height' : '445px'}"
+      src="../../../assets/images/Empty-amico.svg"
+      alt="empty">
+  </div>
+</ng-template>
+<div class="row mt-4">
+  <div class="col-12 m-auto d-flex justify-content-around">
+    <button
+      class="btn btn-primary m-auto"
+      (click)="onCreateSelected()">Add New Resource</button>
+  </div>
+</div>

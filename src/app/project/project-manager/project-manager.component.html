@@ -1,0 +1,90 @@
+<div class="container form-holder-container mt-2">
+  <h1 class="text-center main-theme-color fw-bold">Create A New Project</h1>
+  <form
+    class="new-project mt-4 container align-content-center"
+    (ngSubmit)="onSubmit(projectForm)" #projectForm="ngForm">
+    <div class="row">
+      <div class="mb-3 col-9 m-auto">
+        <label for="projectName" class="form-label main-theme-color">Project Name:</label>
+        <input
+          ngModel
+          required
+          name="projectName"
+          id="projectName"
+          type="email"
+          class="form-control"
+          placeholder="My Project">
+      </div>
+    </div>
+  <div class="row">
+    <div class="mb-3 col-9 m-auto">
+      <label for="projectDesc" class="form-label main-theme-color">Project Description:</label>
+      <textarea
+        ngModel
+        required
+        name="projectDesc"
+        id="projectDesc"
+        class="form-control"
+        rows="2"
+        placeholder="My Description"></textarea>
+    </div>
+  </div>
+    <div class="row">
+      <div class="mb-3 col-9 m-auto">
+        <div class="row">
+          <div class="mb-3 col-6">
+            <label for="projectType" class="form-label main-theme-color">Project Type:</label>
+            <select
+              ngModel
+              required
+              name="projectType"
+              id="projectType"
+              class="form-select">
+              <option selected disabled value>Select your project type</option>
+              <option value="Waterfall">Waterfall</option>
+              <option value="Scrum">Scrum</option>
+            </select>
+          </div>
+          <div class="mb-3 col-6">
+            <label class="form-label main-theme-color" for="projectStartDate">Project Start Date : </label>
+            <input
+              ngModel
+              required
+              name="projectStartDate"
+              id="projectStartDate"
+              class="form-control"
+              type="date">
+          </div>
+        </div>
+      </div>
+      </div>
+    <div class="row">
+      <div class="col-9 m-auto">
+        <label for="projectWorkingDays" class="form-label main-theme-color">Project Working Days:</label>
+        <select
+          ngModel
+          required
+          name="projectWorkingDays"
+          id="projectWorkingDays"
+          class="form-select"
+          size="7"
+          multiple>
+          <option value="Sat">Saturday</option>
+          <option value="Sun">Sunday</option>
+          <option value="Mon">Monday</option>
+          <option value="Tue">Tuesday</option>
+          <option value="Wed">Wednesday</option>
+          <option value="Thu">Thursday</option>
+          <option value="Fri">Friday</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-9 m-auto d-flex justify-content-around">
+        <button type="submit" [disabled]="!projectForm.valid" class="btn btn-primary">Create</button>
+        <button type="reset" class="btn btn-outline-warning">Reset</button>
+        <button type="button" class="btn btn-danger" (click)="onCloseManager()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+.phase-info{
+  align-items: center;
+  .phase-name{
+    width: 50%;
+  }
+
+  .tasks-done{
+    width: 35%;
+    padding-top: 5px;
+  }
+
+  .phase-manager{
+    div{
+      svg, svg{
+        cursor: pointer;
+        color: red;
+        font-size: 25px;
+      }
+    }
+    div:first-of-type{
+      svg{
+        color: #FFC107;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.task-info{
+  .task-name{
+    width: 50%;
+  }
+}

@@ -1,0 +1,31 @@
+.info-container{
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: 4px 6px 18px -6px rgb(0 0 0 / 75%);
+  padding: 10px 17px 10px 17px;
+  height: 545px;
+  overflow: scroll !important;
+
+  .data-container{
+    width: 90%;
+
+    .data-label{
+      width: 35%;
+    }
+
+    .data-value{
+      width: 65%;
+    }
+  }
+}
+
+.deleteProject{
+  position: absolute;
+  right: 29px;
+  top: 295px;
+  cursor: pointer;
+
+  img{
+    width: 70px;
+  }
+}

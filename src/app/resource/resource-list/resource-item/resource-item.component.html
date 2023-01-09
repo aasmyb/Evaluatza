@@ -1,0 +1,16 @@
+<div class="phase-item-wrapper">
+  <div class="phase-info d-flex mb-2">
+    <div class="phase-name">
+      <h6>Resource Name:</h6>
+      <h4 class="main-theme-color fw-bold">{{ resource.name }}</h4>
+    </div>
+    <div class="phase-manager d-flex">
+      <div (click)="onModifyResource()">
+        <i class="fas fa-edit"></i>
+      </div>
+      <div (click)="onDeleteResource()">
+        <i class="fas fa-trash"></i>
+      </div>
+    </div>
+  </div>
+</div>

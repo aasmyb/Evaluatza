@@ -1,0 +1,27 @@
+<h1 class="text-center main-theme-color fw-bold">Select Your Project</h1>
+<div class="list-container d-flex m-auto">
+  <div class="list-container d-flex m-auto" *ngIf="projects.length>0; else noProjects">
+    <app-project-item
+      *ngFor="let projectElement of projects; let projectIDElement = index;"
+      [project]="projectElement"
+      [projectID]="projectIDElement"
+      class="project-card text-center my-4"></app-project-item>
+  </div>
+  <ng-template #noProjects>
+    <h3 class="text-center main-theme">Your List looks Empty, Start Filling it with Life!</h3>
+    <div class="illustration-holder">
+      <img
+        [ngStyle]="{'height' : '445px'}"
+        src="../../../assets/images/Empty-amico.svg"
+        alt="empty">
+      <div class="row mt-4">
+        <div class="col-12 m-auto d-flex justify-content-around">
+          <button
+            class="btn btn-primary m-auto"
+            routerLink="/Create">Add New Project</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+

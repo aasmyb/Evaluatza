@@ -1,0 +1,111 @@
+<div class="container form-holder-container mt-2">
+  <h1 class="text-center main-theme-color fw-bold" *ngIf="mode === 'Create'">Create A New Task</h1>
+  <h1 class="text-center main-theme-color fw-bold" *ngIf="mode !== 'Create'">Modify Your Task</h1>
+  <form
+    class="new-project mt-4 container align-content-center"
+    (ngSubmit)="onSubmit(phaseForm)" #phaseForm="ngForm">
+    <div class="row">
+      <div class="mb-3 col-9 m-auto">
+        <label for="taskName" class="form-label main-theme-color">Task Name:</label>
+        <input
+          [ngModel]="oldTask.name"
+          required
+          name="taskName"
+          id="taskName"
+          type="text"
+          class="form-control"
+          placeholder="My Task">
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 col-9 m-auto">
+        <label class="form-label main-theme-color" for="taskStartDate">Task Start Date : </label>
+        <input
+          [ngModel]="oldTask.startDate"
+          required
+          name="taskStartDate"
+          id="taskStartDate"
+          class="form-control"
+          type="date">
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 col-9 m-auto">
+        <label for="taskType" class="form-label main-theme-color">Task Type:</label>
+        <select
+          [ngModel]="oldTask.type"
+          required
+          name="taskType"
+          id="taskType"
+          class="form-select">
+          <option value selected disabled *ngIf="mode === 'Create'">Select your task type</option>
+          <option value="Regular">Regular</option>
+          <option
+            *ngFor="let typeName of scrumTaskTypes"
+            value="{{typeName}}">{{typeName}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 col-9 m-auto">
+        <label class="form-label main-theme-color">Task Phase:</label>
+        <select
+          *ngIf="mode === 'Create'"
+          ngModel
+          required
+          name="taskPhase"
+          class="form-select">
+          <option value selected disabled>Select your task phase</option>
+          <option
+            *ngFor="let phase of selectedProject.phases; let phaseIndex = index"
+            value="{{phaseIndex}}">{{phase.name}}</option>
+        </select>
+        <select
+          *ngIf="mode === 'Modify'"
+          [ngModel]="phaseID"
+          required
+          name="taskPhase"
+          class="form-select">
+          <option value selected disabled>Select your task phase</option>
+          <option
+            *ngFor="let phase of selectedProject.phases; let phaseIndex = index"
+            value="{{phaseIndex}}">{{phase.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 col-9 m-auto">
+        <label for="taskResource" class="form-label main-theme-color">Task Resource:</label>
+        <select
+          [ngModel]="oldTask.resource"
+          required
+          name="taskResource"
+          id="taskResource"
+          class="form-select">
+          <option value disabled selected *ngIf="mode === 'Create'">Select your task resource</option>
+          <option
+            *ngFor="let resource of selectedProject.resources"
+            value="{{resource.name}}">{{resource.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-9 m-auto d-flex justify-content-around">
+        <button
+          *ngIf="mode === 'Create'"
+          type="submit"
+          [disabled]="!phaseForm.valid"
+          class="btn btn-primary">Create
+        </button>
+        <button
+          *ngIf="mode !== 'Create'"
+          type="submit"
+          [disabled]="!phaseForm.valid"
+          class="btn btn-primary">Modify
+        </button>
+        <button type="reset" class="btn btn-outline-warning">Reset</button>
+        <button type="button" class="btn btn-danger" (click)="onCloseForm()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,46 @@
+<div class="phase-item-wrapper">
+  <div class="phase-info d-flex mb-2">
+    <div class="phase-name">
+      <h6>Name:</h6>
+      <h4 class="main-theme-color fw-bold">{{ task.name }}</h4>
+    </div>
+    <div class="tasks-done">
+      <h6>Status:</h6>
+      <span
+        class="fw-bold"
+        [ngStyle]="{color: taskStatus === 'pending'? 'red' : 'limegreen'}"
+      >{{ taskStatus }} </span>
+    </div>
+    <div class="tasks-type">
+      <h6>Type:</h6>
+      <span
+        class="fw-bold main-theme-color"
+      >{{ task.type }} </span>
+    </div>
+    <div class="phase-date">
+      <h6>Start Date:</h6>
+      <span class="main-theme-color fw-bold">{{ task.startDate }}</span>
+    </div>
+    <div class="phase-date">
+      <h6>Due date:</h6>
+      <span
+        class="main-theme-color fw-bold"
+        [ngStyle]="{color: taskStatus === 'pending'? 'red' : '#014294 '}">{{ taskDueDate }}</span>
+    </div>
+    <div class="phase-resource">
+      <h6>Resource:</h6>
+      <span class="main-theme-color fw-bold">{{ task.resource }}</span>
+    </div>
+    <div class="phase-manager d-flex">
+      <div (click)="onCompleteTask()">
+        <i class="fas fa-check-double done-task"></i>
+      </div>
+      <div (click)="onModifyTask()">
+        <i class="fas fa-edit edit-task" ></i>
+      </div>
+      <div (click)="onDeleteTask()">
+        <i class="fas fa-trash"></i>
+      </div>
+    </div>
+  </div>
+</div>

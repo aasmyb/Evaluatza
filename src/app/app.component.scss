@@ -1,0 +1,36 @@
+.background-container{
+  .background-first{
+    position: absolute;
+    top: -386px;
+    left: -342px;
+  }
+  .background-second {
+    position: absolute;
+    top: -623px;
+  }
+  .background-third {
+    position: absolute;
+    top: -213px;
+    right: -524px;
+  }
+  .background-fourth{
+    position: absolute;
+    left: -342px;
+  }
+}
+.app-container {
+  position: sticky;
+  overflow: hidden;
+  background-color: #f7faff;
+  height: 661px;
+  width: 94%;
+  margin: 45px auto;
+  border-radius: 25px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  display: flex;
+
+  app-nav-bar {
+    width: 22%;
+    background-image: linear-gradient(#014294, #4B89ED);
+  }
+}
